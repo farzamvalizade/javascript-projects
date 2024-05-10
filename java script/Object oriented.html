@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class Person{
+            
+            constructor(firstname,lastname,age){
+                this.firstname=firstname
+                this.lastname=lastname
+                this.age=age
+            }
+            say_hello() {
+                console.log(`Hello dear ${this.firstname}  Welcom to my site`)
+            }
+        }
+        // farzam=new Person("farzam","valizade",14)
+        // // console.log(farzam.firstname)
+        // // console.log(farzam.lastname)
+        // // console.log(farzam.age)
+        // farzam.say_hello()
+        class User extends Person{
+            constructor(firstname,lastname,age,field){
+                super(firstname,lastname,age)
+                this.field=field
+                
+            }
+            login(){
+                console.log(`${this.firstname}: you logged successfuly`)
+            }
+        }
+        class Student extends User{
+            constructor(firstname,lastname,age,field){
+                super(firstname,lastname,age,field)
+            }
+            say_go_to_class(){
+                console.log(`Hey ${this.firstname} go to ${this.field} classes`)
+            }
+        }
+        student_farzam=new Student("farzam",'valizade',14,"maths and physics")
+        console.log(student_farzam.field)
+        student_farzam.say_go_to_class()
+        class Teacher extends User{
+            constructor(firstname,lastname,age,field,terms){
+                super(firstname,lastname,age,field)
+                this.terms=terms
+            }
+        }
+        teacher_farzam=new Teacher("farzam",'valizade',14,"maths and physics",8)
+        console.log(teacher_farzam.terms)
+        console.log(teacher_farzam.login())
+    </script>
+</body>
+</html>
